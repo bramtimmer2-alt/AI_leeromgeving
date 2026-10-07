@@ -51,7 +51,8 @@ Alle instelbare waarden staan op één plek, met dezelfde namen als de props in 
 
 ## Nog te doen vóór livegang
 - [ ] `contactEmail`, KvK, btw en adres invullen in `config.js`
-- [ ] `formEndpoint` instellen en een testaanvraag versturen
+- [x] `formEndpoint` ingesteld op Formspree (aanvragen komen bij jou binnen; de AI-scan-uitslag stuur je zelf persoonlijk toe)
+- [ ] Een testaanvraag versturen op de live site (contactformulier én AI-scan)
 - [ ] Privacyverklaring en voorwaarden aanvullen (zoek op `todo` en `[invullen]`) en juridisch laten controleren
 - [ ] AI Act-teksten controleren via EUR-Lex (zoek op `CONTROLEER`)
 - [ ] Domein bekend? Maak `og:image` absoluut en voeg canonical-tags en een sitemap toe

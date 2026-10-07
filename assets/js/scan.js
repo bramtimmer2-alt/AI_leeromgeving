@@ -104,11 +104,11 @@
       + '<div class="stack-12"><span class="eyebrow eyebrow--muted">Drie acties voor je team</span><ol>' + ACTIES[li].map(a => '<li>' + esc(a) + '</li>').join('') + '</ol></div>'
       + '<div class="result__block">'
       + (s.sent
-        ? '<span style="font-size:15px;color:var(--gold)">' + (forms.testMode() ? 'Testmodus: in de echte versie wordt de uitslag nu naar ' + esc(s.email) + ' gestuurd.' : 'De uitslag is verstuurd naar ' + esc(s.email) + '.') + '</span>'
-        : '<label for="scan-email" style="font-size:16px;font-weight:500">Ontvang je uitslag en deze drie acties per e-mail</label>'
+        ? '<span style="font-size:15px;color:var(--gold)">' + (forms.testMode() ? 'Testmodus: er is niets verstuurd. ' : '') + esc(thanks(s.email)) + '</span>'
+        : '<label for="scan-email" style="font-size:16px;font-weight:500">Wil je de uitslag en deze drie acties per e-mail? Bram stuurt ze je persoonlijk toe, met een korte toelichting.</label>'
           + '<form class="row" style="gap:8px;align-items:flex-start" data-scan-form novalidate>'
           + '<input class="input input--dark" id="scan-email" type="email" autocomplete="email" placeholder="naam@bedrijf.nl" style="flex:1 1 220px" value="' + esc(s.email) + '"' + (s.error ? ' aria-invalid="true" aria-describedby="scan-email-fout"' : '') + '>'
-          + '<button type="submit" class="btn btn--light" style="height:46px;border-radius:10px">Verstuur uitslag</button></form>'
+          + '<button type="submit" class="btn btn--light" style="height:46px;border-radius:10px">Stuur mij de uitslag</button></form>'
           + (s.error ? '<span class="field__error field__error--dark" id="scan-email-fout">' + esc(s.error) + '</span>' : '')
           + '<span class="text-xs" style="color:var(--on-ink-2)">Lees in onze <a href="privacy.html" style="color:var(--on-ink)">privacyverklaring</a> hoe we met je gegevens omgaan.</span>'
           + testNote)
@@ -128,6 +128,12 @@
     }
   }
 
+  // Formspree mailt de aanvraag naar Kompas AI; de bezoeker krijgt de uitslag persoonlijk van Bram.
+  function thanks(email) {
+    const rt = core.contactRt();
+    return 'Bedankt! Bram stuurt je uitslag met een persoonlijke toelichting ' + (rt ? rt + ' ' : '') + 'naar ' + email + '.';
+  }
+
   async function sendEmail(form) {
     const input = form.querySelector('#scan-email'), v = input.value.trim();
     s.email = v;
@@ -136,7 +142,7 @@
     const btn = form.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Versturen…';
     const R = result();
     try {
-      await forms.send({ type: 'AI-scan', _subject: 'Kompas AI · uitslag AI-scan · ' + R.L.name, email: v, fase: R.L.name, score: R.score + ' van 18', antwoorden: SCAN.map((Q, i) => Q.theme + ': ' + Q.o[s.a[i]]), acties: ACTIES[R.li] });
+      await forms.send({ type: 'AI-scan', _subject: 'Kompas AI · AI-scan: uitslag toesturen · ' + R.L.name, email: v, fase: R.L.name, score: R.score + ' van 18', antwoorden: SCAN.map((Q, i) => Q.theme + ': ' + Q.o[s.a[i]]), acties: ACTIES[R.li] });
       K.track('scan_email', { fase: R.L.name });
       s.sent = true; persist(); renderResult(false);
     } catch (e) {

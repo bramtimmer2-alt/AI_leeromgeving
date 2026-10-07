@@ -21,7 +21,7 @@ window.KOMPAS_CONFIG = {
    * Formspree-formulier ('https://formspree.io/f/xxxxxxx') of een eigen API.
    * Leeg = testmodus: de bevestiging verschijnt, maar er wordt niets verstuurd.
    */
-  formEndpoint: '',
+  formEndpoint: 'https://formspree.io/f/xoejeeyr',
 
   /* ── Inhoud ────────────────────────────────────────────────────────── */
   chatReactietijd: 'binnen 48 uur, vaak al dezelfde dag',
