@@ -13,7 +13,7 @@
     update: { label: 'AI-update', icon: '•', bg: '#dfe3ea', fg: '#15213b', info: 'Wekelijkse korte update over nieuwe AI-ontwikkelingen die relevant zijn voor jullie werk. Inbegrepen.' },
     uitleg: { label: 'Uitleg', icon: '▤', bg: '#15213b', fg: '#f6f2eb', info: 'Korte lessen als video en tekst, te volgen op een eigen moment.' },
     opdracht: { label: 'Opdrachten', icon: '◆', bg: '#d39b52', fg: '#15213b', info: 'Praktische opdrachten met echte AI-tools in het eigen werk, op het eigen niveau, met feedback van de coach.' },
-    bellen: { label: 'Belmoment', icon: '◐', bg: '#c9d5ea', fg: '#15213b', info: 'Persoonlijk gesprek van 15 minuten met iemand van het Kompas-team, op afspraak. Het aantal geldt voor het hele team.' },
+    bellen: { label: 'Belmoment', icon: '◐', bg: '#c9d5ea', fg: '#15213b', info: 'Persoonlijk gesprek van 15 minuten met je coach, op afspraak. Het aantal geldt voor het hele team.' },
     kennis: { label: 'Kennischeck', icon: '✓', bg: '#efe0c2', fg: '#15213b', info: 'Korte automatische quiz na elke leerweek.' },
     praktijk: { label: 'Praktijktoets', icon: '▲', bg: '#e7c9b8', fg: '#15213b', info: 'Praktijkopdracht uit het eigen werk, beoordeeld door de coach.' },
     eind: { label: 'Eindtoets', icon: '★', bg: '#9a4a2b', fg: '#ffffff', info: 'Afsluitende toets met een bewijs van deelname. Dit is geen certificaat.' },
