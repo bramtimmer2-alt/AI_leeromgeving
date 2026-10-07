@@ -1,4 +1,7 @@
+# Hulpmap van Claude (alleen voor het lokale voorbeeldvenster)
 .claude/
+
+# Systeembestanden van Windows en macOS
 Thumbs.db
 desktop.ini
 .DS_Store
