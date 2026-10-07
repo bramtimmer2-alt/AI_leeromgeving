@@ -36,6 +36,8 @@ Alle instelbare waarden staan op één plek, met dezelfde namen als de props in 
   en Leerpad op aanvraag, inclusief einddata en coachminuten.
 - De configuratie wordt gedeeld via `localStorage` (`kompas-site-v4`), het concept van het contactformulier via `sessionStorage`.
 - Tracking: `dataLayer`-events met UTM-waarden, zoals in het ontwerp. Er is nog geen tag manager of consentbanner.
+- Bezoekersstatistieken: Cloudflare Web Analytics (cookievrij), via het script vlak voor `</body>` op elke pagina.
+  Op je eigen computer (localhost) geeft dat script foutmeldingen in de console; dat is normaal.
 - Header en footer staan in elk HTML-bestand. Wijzig je het menu, pas het dan op alle pagina’s aan.
 
 ## Bewuste aanpassingen ten opzichte van het ontwerp
