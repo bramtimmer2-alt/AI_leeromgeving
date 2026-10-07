@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact en offerte · Kompas AI</title>
+<meta name="description" content="Neem contact op met Kompas AI of vraag een vrijblijvende offerte aan. Je configuratie en planning gaan direct mee met je aanvraag.">
+<meta name="theme-color" content="#f6f2eb">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Kompas AI">
+<meta property="og:title" content="Contact en offerte · Kompas AI">
+<meta property="og:description" content="Neem contact op of vraag een offerte aan.">
+<meta property="og:image" content="assets/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Gloock&amp;display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>document.documentElement.className += ' js';</script>
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/core.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/planner.js" defer></script>
+<script src="assets/js/forms.js" defer></script>
+<script src="assets/js/contact.js" defer></script>
+</head>
+<body data-page="contact">
+<a class="skip-link" href="#main">Naar de inhoud</a>
+
+<header class="site-header" data-header>
+  <div class="header__bar">
+    <a class="brand" href="index.html" aria-label="Kompas AI, naar de homepage">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.75" fill="none" stroke="currentColor" stroke-width="1.5"/><g transform="rotate(30 16 16)"><path d="M16 6 18.5 16h-5z" fill="#d39b52"/><path d="M13.5 16h5L16 26z" fill="currentColor"/></g></svg>
+      <span class="brand__name">Kompas</span><span class="brand__tag">AI</span>
+    </a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="werkwijze.html" data-nav="werkwijze">Werkwijze</a>
+      <a href="pakketten.html" data-nav="pakketten">Pakketten &amp; prijzen</a>
+      <a href="over.html" data-nav="over">Over Kompas AI</a>
+      <a href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <a class="header__login" href="#" data-login hidden>Inloggen</a>
+      <a class="btn btn--outline btn--sm header__offerte" href="contact.html?type=offerte" data-cta="Offerte">Offerte aanvragen</a>
+      <a class="btn btn--primary btn--sm" href="ai-scan.html" data-hide-on-scan><span class="label-lg">Gratis AI-scan</span><span class="label-sm">Gratis scan</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobiel-menu" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobiel-menu" aria-label="Hoofdmenu" hidden>
+    <a class="mobile-menu__scan" href="ai-scan.html" data-nav="ai-scan">Gratis AI-scan <span class="arrow" aria-hidden="true">→</span></a>
+    <a href="werkwijze.html" data-nav="werkwijze">Werkwijze</a>
+    <a href="pakketten.html" data-nav="pakketten">Pakketten &amp; prijzen</a>
+    <a href="over.html" data-nav="over">Over Kompas AI</a>
+    <a href="contact.html" data-nav="contact">Contact</a>
+    <a class="mobile-menu__offerte" href="contact.html?type=offerte" data-cta="Offerte">Offerte aanvragen</a>
+    <a class="mobile-menu__login" href="#" data-login hidden>Inloggen</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- Formulier -->
+  <div data-view="form">
+    <section class="container page-head" style="padding-bottom:28px;gap:14px">
+      <p class="eyebrow">Contact &amp; offerte</p>
+      <h1 class="title" id="form-titel" style="font-size:clamp(36px,4.4vw,60px);max-width:900px">Neem contact op of vraag een offerte aan.</h1>
+      <p class="serif-lead" style="max-width:760px">We maken per bedrijf een persoonlijke leeromgeving, waarin elke medewerker op eigen niveau start.</p>
+    </section>
+
+    <div class="container contact-layout">
+      <div class="stack-16" style="min-width:0">
+        <form class="form-card" id="aanvraag" novalidate aria-labelledby="form-titel">
+          <span class="test-notice" data-show="testMode" hidden>Testmodus: dit formulier verstuurt nog niets</span>
+          <div class="stack-8" role="group" aria-labelledby="type-label">
+            <span class="field-label" id="type-label">Waar gaat het over?</span>
+            <div class="chip-row" data-list="formTypes"></div>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="f-bedrijf">Bedrijfsnaam *</label>
+              <input class="input" id="f-bedrijf" name="bedrijf" type="text" autocomplete="organization" aria-required="true" data-attr="aria-invalid:ai.bedrijf;aria-describedby:ad.bedrijf">
+              <span class="field__error" id="f-bedrijf-fout" data-show="err.bedrijf" hidden>Vul de bedrijfsnaam in.</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-naam">Je naam *</label>
+              <input class="input" id="f-naam" name="naam" type="text" autocomplete="name" aria-required="true" data-attr="aria-invalid:ai.naam;aria-describedby:ad.naam">
+              <span class="field__error" id="f-naam-fout" data-show="err.naam" hidden>Vul je naam in.</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-email">E-mailadres *</label>
+              <input class="input" id="f-email" name="email" type="email" autocomplete="email" aria-required="true" data-attr="aria-invalid:ai.email;aria-describedby:ad.email">
+              <span class="field__error" id="f-email-fout" data-show="err.email" hidden>Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-telefoon">Telefoonnummer</label>
+              <input class="input" id="f-telefoon" name="telefoon" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="stack-8" role="group" aria-labelledby="lp-label" data-show="isB" hidden>
+            <span class="field-label" id="lp-label">Voor welke leerpaden?</span>
+            <div class="chip-row" data-list="lpChips"></div>
+            <span class="field__hint">Gekoppeld aan je configuratie. We verdelen de medewerkers automatisch; het aantal per leerpad pas je aan bij Pakketten &amp; prijzen.</span>
+          </div>
+          <div class="field" data-show="anderField" hidden>
+            <label class="field__label" for="f-ander">Ander leerpad: welke functie of afdeling?</label>
+            <input class="input" id="f-ander" type="text" placeholder="Bijvoorbeeld: klantenservice">
+          </div>
+          <div class="stack-8" role="group" aria-labelledby="lpi-label" data-show="isA">
+            <span class="field-label" id="lpi-label">Interesse in leerpaden <span style="font-weight:400;color:var(--text-3)">(optioneel)</span></span>
+            <div class="chip-row" data-list="lpiChips"></div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-bericht">Toelichting</label>
+            <textarea class="textarea" id="f-bericht" name="bericht" placeholder="Bijvoorbeeld: welke tools jullie gebruiken of wanneer je wilt starten."></textarea>
+          </div>
+          <label class="checkbox" data-show="showCfgOpt" hidden>
+            <input type="checkbox" id="f-config">
+            <span class="checkbox__box" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6l4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Stuur mijn configuratie mee
+          </label>
+          <p class="text-sm" data-show="isB" hidden>Je configuratie en planning gaan mee met deze aanvraag.</p>
+          <div class="hp" aria-hidden="true"><label>Laat dit veld leeg <input type="text" id="f-website" tabindex="-1" autocomplete="off"></label></div>
+          <div aria-live="polite" class="stack-8">
+            <div class="notice notice--error" data-show="hasErrors" hidden>Controleer de gemarkeerde velden.</div>
+            <div class="notice notice--error" data-show="sendError" hidden data-text="sendError"></div>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn btn--primary btn--lg" data-attr="disabled:sending"><span data-text="submitLabel">Verstuur aanvraag</span> <span class="arrow" aria-hidden="true">→</span></button>
+            <span class="text-xs">Lees in onze <a href="privacy.html">privacyverklaring</a> hoe we met je gegevens omgaan.</span>
+            <span class="text-xs" style="flex-basis:100%;order:3;color:var(--text-2)" data-bind="vrijblijvend">Vrijblijvend, je zit nergens aan vast · reactie binnen 1 werkdag.</span>
+          </div>
+        </form>
+
+        <section class="summary" data-show="isB" hidden aria-labelledby="cfg-titel">
+          <div class="summary__head">
+            <h2 class="h4" id="cfg-titel">Jouw configuratie</h2>
+            <a class="btn btn--gold-line btn--xxs" href="pakketten.html#configurator">Pas aan</a>
+          </div>
+          <dl class="kv" data-list="summaryRows"></dl>
+          <div class="total" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px">
+            <div class="stack" style="gap:2px">
+              <span class="total__label">Indicatie, excl. btw</span>
+              <span class="total__amount total__amount--sm" data-text="totalFmt"></span>
+              <span class="total__pp"><span data-text="perEmpFmt"></span> per medewerker<span data-show="cfg.ander.on" hidden> · exclusief leerpaden op aanvraag</span></span>
+            </div>
+            <button type="button" class="btn btn--ghost-light btn--xs" data-action="togglePlan" aria-controls="volledige-planning" data-attr="aria-expanded:planExp" data-text="planLabel">Bekijk volledige planning</button>
+          </div>
+          <span class="total__note" data-show="groot" hidden>Groot voorstel: bij deze omvang stemmen we de begeleiding en planning eerst met je af.</span>
+        </section>
+        <div class="cfg-panel" style="padding:clamp(18px,3vw,28px)" id="volledige-planning" data-show="showPlan" hidden><div data-planner="form"></div></div>
+      </div>
+
+      <aside class="contact-aside" aria-label="Direct contact">
+        <div class="contact-aside__photo">
+          <img src="assets/img/bram-240.jpg" alt="" width="48" height="48" loading="lazy">
+          <div class="stack" style="gap:2px"><b style="font-weight:600">Bram Timmer</b><span class="text-xs">Oprichter en coach</span></div>
+        </div>
+        <span class="eyebrow" style="font-size:11px" data-if="contactEmail" hidden>Direct contact</span>
+        <a href="#" data-email data-if="contactEmail" hidden></a>
+        <span class="text" style="font-size:15px">Volledig online, voor bedrijven in heel Nederland.</span>
+        <span class="text-xs" data-if="contactReactietijd">We reageren <span data-bind="contactReactietijd">binnen 1 werkdag</span>.</span>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Bevestiging -->
+  <section class="container stack-48" data-view="sent" hidden style="max-width:1180px;padding-block:clamp(56px,7vw,96px) clamp(64px,8vw,112px)">
+    <div class="stack-16" style="align-items:flex-start">
+      <span class="confirm-icon" aria-hidden="true"><span></span></span>
+      <span class="eyebrow">Aanvraag · <span data-text="sent.type"></span></span>
+      <h1 class="title title--md" id="bedankt-titel" tabindex="-1" style="outline:none">Bedankt, <span data-text="sent.naam"></span>.</h1>
+      <p class="text-lg" style="max-width:720px">We hebben de aanvraag voor <span data-text="sent.bedrijf"></span> ontvangen.</p>
+      <span class="test-notice" data-show="sent.test" hidden>Testmodus: er is niets verstuurd. Zo ziet de bevestiging eruit.</span>
+    </div>
+
+    <div class="stack-16" data-show="sentA" hidden style="padding-top:28px;border-top:1px solid var(--ink)">
+      <h2 class="h2" style="font-size:clamp(28px,3.2vw,40px)">We nemen contact op om een moment te plannen.</h2>
+      <p class="text" data-if="contactReactietijd">We nemen <span data-bind="contactReactietijd">binnen 1 werkdag</span> contact met je op.</p>
+      <p class="text" data-show="sent.cfgSent" hidden>Je configuratie is meegestuurd.</p>
+      <button type="button" class="btn btn--soft btn--sm" style="align-self:flex-start" data-action="newForm">Nieuwe aanvraag</button>
+    </div>
+
+    <div class="stack-20" data-show="sentB" hidden>
+      <h2 class="h2" style="font-size:clamp(30px,3.4vw,44px)">Dit maken we voor jullie</h2>
+      <div class="grid cols-2">
+        <div class="card card--ink" style="padding:28px;gap:10px"><span class="mono-sm" style="color:var(--gold);font-weight:500">01 · PER BEDRIJF</span><span class="h4" style="line-height:1.2">Een eigen, persoonlijke leeromgeving</span><span class="text" style="font-size:15px">Ingericht op jullie tools, functies, leerpaden en afspraken. Leerpaden: <span data-text="lpSummary"></span>.</span></div>
+        <div class="card card--line" style="padding:28px;gap:10px"><span class="mono-sm" style="font-weight:500">02 · PER MEDEWERKER</span><span class="h4" style="line-height:1.2">Een start op eigen niveau</span><span class="text" style="font-size:15px">Op basis van de nulmeting start iedere medewerker als Beginner, Toepassen of Zelfstandig. Opdrachten en tempo sluiten daarop aan.</span></div>
+      </div>
+      <div class="cfg-panel" style="padding:clamp(18px,3vw,32px);gap:18px;display:flex;flex-direction:column">
+        <div class="row" style="justify-content:space-between;align-items:flex-end">
+          <div class="stack" style="gap:6px"><span class="mono-sm" style="font-weight:500">03 · DE PLANNING</span><span class="h4" style="line-height:1.2">Zoals jullie die hebben ingesteld</span></div>
+          <a class="btn btn--outline btn--sm" href="pakketten.html#configurator">Pas aan en verstuur opnieuw</a>
+        </div>
+        <div data-planner="sent"></div>
+        <div class="row" style="justify-content:space-between;padding-top:14px;border-top:1px solid var(--line-3);font-size:14px;color:var(--text-2)">
+          <span><span data-text="emp"></span> medewerkers · <span data-text="werkdagen"></span> werkdagen · <span data-text="leren"></span></span>
+          <span style="font:400 24px var(--font-serif);color:var(--ink)"><span data-text="totalFmt"></span> <span style="font:400 13px var(--font-sans);color:var(--text-3)">indicatie excl. btw</span></span>
+        </div>
+      </div>
+      <div class="stack-16" style="margin-top:28px">
+        <h2 class="h2" style="font-size:clamp(26px,3vw,36px)">Zo gaat het verder</h2>
+        <p class="text" data-if="contactReactietijd">We nemen <span data-bind="contactReactietijd">binnen 1 werkdag</span> contact met je op.</p>
+        <ol class="next-steps">
+          <li><span>01</span><span>Een online intakegesprek van ongeveer 30 minuten.</span></li>
+          <li><span>02</span><span>Daarna een definitieve offerte op basis van jullie traject.</span></li>
+        </ol>
+        <button type="button" class="btn btn--soft btn--sm" style="align-self:flex-start" data-action="newForm">Nieuwe aanvraag</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer__inner">
+    <div class="footer__top">
+      <div class="footer__cta">
+        <h2 class="h2">Benieuwd waar jouw team staat met AI?</h2>
+        <div class="row">
+          <a class="btn btn--accent" href="ai-scan.html" data-hide-on-scan>Doe de gratis AI-scan</a>
+          <a class="btn btn--ghost-light" href="contact.html?type=offerte" data-cta="Offerte">Offerte aanvragen</a>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col"><span class="footer__head">Aanbod</span><a href="werkwijze.html">Werkwijze</a><a href="pakketten.html">Pakketten &amp; prijzen</a><a href="leeromgeving-op-maat.html">Leeromgeving op maat</a></div>
+        <div class="footer__col"><span class="footer__head">Ontdek</span><a href="demo.html">Demo</a><a href="ai-scan.html">AI-scan</a><a href="over.html">Over Kompas AI</a><a href="#" data-login hidden>Inloggen</a></div>
+        <div class="footer__col"><span class="footer__head">Contact</span><a href="contact.html" data-cta="Kennismaking">Contact</a><a href="#" data-email data-if="contactEmail" hidden></a><p class="footer__note">Volledig online, voor bedrijven in heel Nederland.</p></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        <svg class="footer__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.75" fill="none" stroke="currentColor" stroke-width="1.5"/><g transform="rotate(30 16 16)"><path d="M16 6 18.5 16h-5z" fill="#d39b52"/><path d="M13.5 16h5L16 26z" fill="currentColor"/></g></svg>
+        <span>© <span data-year>2026</span> Kompas AI</span><span data-bedrijfsregel hidden></span>
+      </div>
+      <div class="footer__links"><a href="privacy.html">Privacyverklaring</a><a href="voorwaarden.html">Algemene voorwaarden</a><span>Prijzen zijn indicaties excl. btw</span></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
